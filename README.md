@@ -17,3 +17,6 @@ This project provides a **low-power, weatherproof, and long-term recording solut
 ![Additional Image](img/images/2_comp.jpg)
 
 This system has been tested in an urban environment for recording trip generation data following ITE guidelines. It provides a cost-effective way to monitor vehicle, pedestrian, and cyclist activity over extended periods, even in low-light and adverse weather conditions, making it ideal for transportation research and analysis.
+
+
+Special thanks to Boyang Xiang, Ph.D., Sr. Lab Manager, Civil & Environmental Engineering, UMass Lowell, for designing and 3D printing the custom enclosure for this project.
