@@ -1,0 +1,23 @@
+1. Disable services:
+sudo systemctl unmask hostapd
+sudo systemctl enable hostapd
+
+
+2. Restore Default Network Configuration
+Edit /etc/dhcpcd.conf to remove or comment out the static IP configuration
+sudo nano /etc/dhcpcd.conf
+Find and uncomment these lines
+interface wlan0
+static ip_address=192.168.4.1/24
+nohook wpa_supplicant
+
+
+3. wpa_supplicant (not really)
+sudo systemctl disable wpa_supplicant
+sudo systemctl stop wpa_supplicant
+
+
+4. Reboot
+sudo reboot
+
+

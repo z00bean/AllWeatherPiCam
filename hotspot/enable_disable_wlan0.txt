@@ -1,0 +1,10 @@
+Disable wlan0 (Turn off hotspot):
+sudo ip link set wlan0 down
+-or-
+sudo ifconfig wlan0 down
+
+
+Enable (Re-enable and restore hotspot):
+sudo ip link set wlan0 up
+-or-
+sudo ifconfig wlan0 up

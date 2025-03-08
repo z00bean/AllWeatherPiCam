@@ -1,0 +1,70 @@
+SCP:
+scp record_clips.py pi@192.168.0.100:/home/pi/Documents/Camera
+scp take_pics.py pi@192.168.0.100:/home/pi/Documents/Camera
+scp COMMANDS.txt pi@192.168.0.100:/home/pi/Documents/Camera
+
+Capture Images
+
+1️⃣ Take a Photo with Default Settings (JPEG, 5s preview)
+libcamera-still -o image.jpg
+
+2️⃣ Capture Without Preview
+libcamera-still -n -o image.jpg
+
+3️⃣ Set Resolution (e.g., 1920x1080)
+libcamera-still --width 1920 --height 1080 -o image_1080p.jpg
+
+4️⃣ Set JPEG Quality (0-100, Default: 90)
+libcamera-still -q 95 -o high_quality.jpg
+
+5️⃣ Time-Lapse Photography (Capture Every 10s, 10 Photos)
+libcamera-still -t 100000 --timelapse 10000 -o timelapse_%04d.jpg
+
+6️⃣ Capture in PNG Format
+libcamera-still --width 1920 --height 1080 --codec png -o image.png
+
+
+
+🎥 Record Videos
+
+7️⃣ Record a 10-Second Video
+libcamera-vid -t 10000 -o video.h264
+
+8️⃣ Record Without Preview
+libcamera-vid -n -t 10000 -o video.h264
+
+9️⃣ Set Resolution (e.g., 1280x720)
+libcamera-vid --width 1280 --height 720 -t 10000 -o video_720p.h264
+
+🔟 Record with H.265 Encoding (Better Compression)
+libcamera-vid --codec hevc -t 10000 -o video_hevc.h265
+
+1️⃣1️⃣ Save Video as MP4 (Convert H.264 to MP4)
+ffmpeg -i video.h264 -c copy video.mp4
+
+1️⃣2️⃣ Record with Specific Frame Rate (e.g., 30 FPS)
+libcamera-vid --framerate 30 -t 10000 -o video_30fps.h264
+
+
+
+🛠 Advanced Settings
+
+1️⃣3️⃣ Set Exposure Mode to Night
+libcamera-still --shutter 6000000 -o night_mode.jpg
+
+1️⃣4️⃣ Manually Set ISO (e.g., ISO 400)
+libcamera-still --gain 4.0 -o iso400.jpg
+
+1️⃣5️⃣ Enable HDR (High Dynamic Range)
+libcamera-still --hdr -o hdr_image.jpg
+
+
+
+🔥 Live Camera Preview
+
+1️⃣6️⃣ View Camera Feed Without Capturing
+libcamera-hello
+1️⃣7️⃣ Stream Camera Feed to Another Device
+libcamera-vid -t 0 --inline --listen -o tcp://0.0.0.0:8554
+(Use VLC to view: rtsp://<raspberry_pi_ip>:8554)
+

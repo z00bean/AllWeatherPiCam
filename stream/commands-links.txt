@@ -1,0 +1,18 @@
+sudo apt install gstreamer1.0-tools gstreamer1.0-rtsp
+
+
+libcamera-vid -t 0 --inline -o - | gst-launch-1.0 fdsrc ! h264parse ! rtph264pay config-interval=1 pt=96 ! udpsink host=192.168.0.35 port=8554
+
+
+WORKS
+TCP stream in RPi Zero:
+libcamera-vid -t 0 --inline --listen -o tcp://0.0.0.0:8554
+In client: 
+ffplay tcp://192.168.0.35:8554
+================================
+sudo apt install ffmpeg -y
+libcamera-vid -t 0 --inline -o - | ffmpeg -re -i - -c:v copy -f rtsp rtsp://0.0.0.0:8554/live.stream
+
+rtsp://192.168.0.35:8554/live.stream
+
+
