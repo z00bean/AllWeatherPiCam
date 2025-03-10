@@ -13,14 +13,22 @@ This guide provides step-by-step instructions for setting up the Arducam IMX462 
 ### 1. Install Required Packages
 
 #### Step 1: Download the Arducam Installation Script
-wget -O install_pivariety_pkgs.sh https://github.com/ArduCAM/Arducam-Pivariety-V4L2-Driver/releases/download/install_script/install_pivariety_pkgs.sh  
+```
+wget -O install_pivariety_pkgs.sh https://github.com/ArduCAM/Arducam-Pivariety-V4L2-Driver/releases/download/install_script/install_pivariety_pkgs.sh
+```
+```
 chmod +x install_pivariety_pkgs.sh  
+```
 
 #### Step 2: Install libcamera
-./install_pivariety_pkgs.sh -p libcamera_dev  
+```
+./install_pivariety_pkgs.sh -p libcamera_dev
+```
 
 #### Step 3: Install libcamera-apps
-./install_pivariety_pkgs.sh -p libcamera_apps  
+```
+./install_pivariety_pkgs.sh -p libcamera_apps
+```
 
 ## 2. Modify Configuration Files
 
@@ -29,10 +37,14 @@ Edit the configuration file:
 sudo nano /boot/firmware/config.txt  
 
 Add the following line under [all]:  
-dtoverlay=arducam-pivariety  
+```
+dtoverlay=arducam-pivariety
+```
 
 Save and reboot:  
-sudo reboot  
+```
+sudo reboot
+```
 
 To enable the camera on cam0 port (Pi 5 only), modify the config:  
 dtoverlay=arducam-pivariety,cam0  
@@ -50,10 +62,14 @@ Save and reboot.
 ## Using libcamera to Capture Images
 
 ### Preview Camera Output (10 Seconds)
-libcamera-still -t 10000  
+```
+libcamera-still -t 10000
+```
 
 ### Capture an Image Without Display
-libcamera-still -t 10000 -n -o test.jpg  
+```
+libcamera-still -t 10000 -n -o test.jpg
+```
 test.jpg will be saved in the current directory.  
 
 ## Using V4L2 Tools for Manual Control
