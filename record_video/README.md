@@ -15,7 +15,8 @@ This script allows **continuous video recording** with **timestamp overlay**, op
 ## Usage  
 To start recording, run:  
 ```bash
-python capture_video-RPiZero2-v3.1.2.py```
+python capture_video-RPiZero2-v3.1.2.py
+```
 
 By default, the script records 30-minute clips (1800 seconds) at 24 FPS. You can modify parameters such as duration, resolution, and frame rate in the record_video() function.
 
