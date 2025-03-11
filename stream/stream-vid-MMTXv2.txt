@@ -1,0 +1,58 @@
+Modify mediamtx.yml:
+
+...
+webrtc:
+  enabled: yes
+
+...
+hls:
+  enabled: yes
+
+Step 0:
+Edit mediamtx.yml
+paths:
+  mystream:
+    source: publisher
+    runOnInit: libcamera-vid -t 0 --inline --framerate 30 -o - | ffmpeg -i - -c:v copy -f rtsp rtsp://localhost:8554/mystream
+    runOnInitRestart: yes
+
+Step 1:
+Stream rtsp (mediamtx input):
+libcamera-vid -t 0 --inline --framerate 30 -o - | ffmpeg -i - -c:v copy -f rtsp rtsp://localhost:8554/mystream
+
+
+Step 2:
+Mediamtx to WebRTC:
+./mediamtx
+
+
+
+WebRCT: http://<raspberry_pi_ip>:8889/mystream
+HLS: http://<raspberry_pi_ip>:8888/mystream
+
+
+
+Auto-Start Streaming on Boot (Optional)
+To run libcamera-vid automatically at startup, create a systemd service:
+sudo nano /etc/systemd/system/stream.service
+
+
+Add the following:
+[Unit]
+Description=RTSP Stream from libcamera-vid
+After=network.target
+
+[Service]
+ExecStart=/bin/bash -c "libcamera-vid -t 0 --inline --framerate 30 -o - | ffmpeg -i - -c:v copy -f rtsp rtsp://localhost:8554/mystream"
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+Enable and start the service
+sudo systemctl enable stream.service
+sudo systemctl start stream.service
+
