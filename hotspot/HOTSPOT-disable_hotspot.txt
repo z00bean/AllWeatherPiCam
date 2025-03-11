@@ -11,13 +11,20 @@ interface wlan0
 static ip_address=192.168.4.1/24
 nohook wpa_supplicant
 
+3.
+sudo mv /etc/hostapd/hostapd.conf /etc/hostapd/hostapd-off.conf
 
-3. Restore Default wpa_supplicant
+4.Update /etc/default/hostapd:
+sudo nano /etc/default/hostapd
+Comment
+DAEMON_CONF="/etc/hostapd/hostapd.conf"
+
+5. Restore Default wpa_supplicant
 Ensure wpa_supplicant is enabled again for normal Wi-Fi connection
 sudo systemctl enable wpa_supplicant
 sudo systemctl restart wpa_supplicant
 
-4. Reboot
+6. Reboot
 sudo reboot
 
 

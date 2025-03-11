@@ -11,13 +11,19 @@ interface wlan0
 static ip_address=192.168.4.1/24
 nohook wpa_supplicant
 
+3.
+sudo mv /etc/hostapd/hostapd-off.conf /etc/hostapd/hostapd.conf
 
-3. wpa_supplicant (not really)
+4.Update /etc/default/hostapd:
+sudo nano /etc/default/hostapd
+Un-comment
+DAEMON_CONF="/etc/hostapd/hostapd.conf"
+
+4. wpa_supplicant (not really)
 sudo systemctl disable wpa_supplicant
 sudo systemctl stop wpa_supplicant
 
-
-4. Reboot
+5. Reboot
 sudo reboot
 
 
