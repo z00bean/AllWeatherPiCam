@@ -46,6 +46,7 @@ After=network.target
 ExecStart=/bin/bash -c "libcamera-vid -t 0 --inline --nopreview --framerate 30 -o - | ffmpeg -i - -c:v copy -f rtsp rtsp://localhost:8554/mystream"
 Restart=always
 User=pi
+RuntimeMaxSec=1800  # Stop after 30 minutes
 
 [Install]
 WantedBy=multi-user.target
@@ -72,6 +73,7 @@ After=network.target
 ExecStart=/usr/local/bin/mediamtx /path/to/mediamtx.yml
 Restart=always
 User=pi
+RuntimeMaxSec=1800  # Stop after 30 minutes
 
 [Install]
 WantedBy=multi-user.target
