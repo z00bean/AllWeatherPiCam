@@ -19,11 +19,11 @@ sudo nano /etc/default/hostapd
 Un-comment
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
 
-4. wpa_supplicant (not really)
+5. wpa_supplicant (not really)
 sudo systemctl disable wpa_supplicant
 sudo systemctl stop wpa_supplicant
 
-5. Reboot
+6. Reboot
 sudo reboot
 
 
