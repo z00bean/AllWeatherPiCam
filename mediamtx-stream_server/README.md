@@ -409,3 +409,5 @@ while True:
 ```
 
 The resulting stream will be available in path `/mystream`.
+
+https://github.com/bluenviron/mediamtx/releases/download/v1.11.3/mediamtx_v1.11.3_linux_armv6.tar.gz
