@@ -31,7 +31,7 @@ WebRCT: http://<raspberry_pi_ip>:8889/mystream
 HLS: http://<raspberry_pi_ip>:8888/mystream
 
 
-
+=====================================
 Auto-Start Streaming on Boot (Optional)
 To run libcamera-vid automatically at startup, create a systemd service:
 sudo nano /etc/systemd/system/stream.service
@@ -43,7 +43,7 @@ Description=RTSP Stream from libcamera-vid
 After=network.target
 
 [Service]
-ExecStart=/bin/bash -c "libcamera-vid -t 0 --inline --framerate 30 -o - | ffmpeg -i - -c:v copy -f rtsp rtsp://localhost:8554/mystream"
+ExecStart=/bin/bash -c "libcamera-vid -t 0 --inline --nopreview --framerate 30 -o - | ffmpeg -i - -c:v copy -f rtsp rtsp://localhost:8554/mystream"
 Restart=always
 User=pi
 
@@ -55,4 +55,32 @@ WantedBy=multi-user.target
 Enable and start the service
 sudo systemctl enable stream.service
 sudo systemctl start stream.service
+
+
+---------
+Auto-Start MediaMTX Server
+Create a systemd service for MediaMTX:
+sudo nano /etc/systemd/system/mediamtx.service
+
+
+Add (Edit location of medimtx and the yml file):
+[Unit]
+Description=MediaMTX Streaming Server
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/mediamtx /path/to/mediamtx.yml
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
+
+
+Save and enable:
+sudo systemctl enable mediamtx.service
+sudo systemctl start mediamtx.service
+
+
+
 
