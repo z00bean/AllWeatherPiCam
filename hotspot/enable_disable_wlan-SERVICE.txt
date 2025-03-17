@@ -1,0 +1,57 @@
+Disable wlan0 (Turn off hotspot):
+sudo ip link set wlan0 down
+
+
+Enable (Re-enable and restore hotspot):
+sudo ip link set wlan0 up
+
+# disable_wifi.py
+import time
+import os
+
+# Wait for 5 minutes (300 seconds)
+time.sleep(300)
+
+# Run the command to disable wlan0
+os.system("sudo ip link set wlan0 down")
+
+# END CODE
+
+
+1. Create a systemd service:
+sudo nano /etc/systemd/system/disable_wifi.service
+
+2. Add the following content:
+[Unit]
+Description=Disable WiFi after 5 minutes
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/pi/disable_wifi.py
+Restart=on-failure
+User=pi
+
+[Install]
+WantedBy=multi-user.target
+
+
+3. Save & exit.
+
+4. Enable and start the service:
+sudo systemctl enable disable_wifi.service
+sudo systemctl start disable_wifi.service
+
+
+Stop the Service (Immediate):
+sudo systemctl stop disable_wifi.service
+
+
+Disable the Service (Prevent Running on Boot):
+sudo systemctl disable disable_wifi.service
+
+
+Remove the Service Permanently:
+sudo systemctl disable disable_wifi.service
+sudo rm /etc/systemd/system/disable_wifi.service
+sudo systemctl daemon-reload
+

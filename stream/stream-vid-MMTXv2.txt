@@ -1,3 +1,5 @@
+To stream: http://192.168.4.1:8889/cam0/
+
 Modify mediamtx.yml:
 
 ...
