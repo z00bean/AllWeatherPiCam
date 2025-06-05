@@ -87,4 +87,8 @@ sudo systemctl start mediamtx.service
 
 
 
+STOP services before recording:
+sudo systemctl stop mediamtx.service
+sudo systemctl stop stream.service
+
 
