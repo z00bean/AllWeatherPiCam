@@ -87,8 +87,23 @@ sudo systemctl start mediamtx.service
 
 
 
+<<<<<<< HEAD
 STOP services before recording:
 sudo systemctl stop mediamtx.service
 sudo systemctl stop stream.service
 
+=======
+Stop the Service (Immediate):
+sudo systemctl stop mediamtx.service
+
+Disable the Service (Prevent Running on Boot):
+sudo systemctl disable mediamtx.service
+
+
+
+Remove the Service Permanently:
+sudo systemctl disable mediamtx.service
+sudo rm /etc/systemd/system/mediamtx.service
+sudo systemctl daemon-reload
+>>>>>>> 4a0bbd3 (v3.3)
 
