@@ -1,4 +1,4 @@
-# Pi Zero 2 Low-Light All-Weather Camera
+# Low-Light All-Weather Camera
 
 <!--![Project Image](img/Slide1.jpeg)-->
 <img src="img/TrafficCam.jpg" width="650">
