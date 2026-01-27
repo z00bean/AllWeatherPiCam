@@ -1,9 +1,9 @@
 # Low-Light All-Weather Camera
 
 <!--![Project Image](img/Slide1.jpeg)-->
-<img src="img/TrafficCam.jpg" width="650">
+<img src="img/TrafficCam.jpg" width="750">
 
-This project provides a **low-power, weatherproof, and long-term recording solution** using the **Raspberry Pi Zero 2 W** with a **low-light camera module**. Designed for outdoor environments, it can operate in **rain, snow, and extreme temperatures** while capturing video efficiently over extended periods. The system is optimized for **low power consumption**, **automatic file management**, and **reliable performance** in challenging lighting conditions. Whether for **wildlife monitoring, security, or time-lapse photography**, this project offers a compact and cost-effective solution.
+This project provides a **low-power, weatherproof, and long-term recording solution** using popular SBCs, such as the Raspberry Pi Zero 2 W, paired with with a **low-light camera module**. It is designed for outdoor environments, and can operate in **rain, snow, and extreme temperatures** while capturing video efficiently over extended periods. The system is optimized for **low power consumption**, **automatic file management**, and **reliable performance** in challenging lighting conditions. Whether for **wildlife monitoring, security, or time-lapse photography**, this project offers a compact and cost-effective solution.
 
 ## Deployment 
 <!--![Deployment](img/Slide2.jpeg)-->
